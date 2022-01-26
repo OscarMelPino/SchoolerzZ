@@ -1,1 +1,1 @@
-# SchoolerZ
+# SchoolerzZ
