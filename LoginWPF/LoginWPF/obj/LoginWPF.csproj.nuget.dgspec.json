@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj": {}
+    "C:\\Users\\oscar\\Desktop\\SchoolerzZ\\OscarMelPino\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj": {
+    "C:\\Users\\oscar\\Desktop\\SchoolerzZ\\OscarMelPino\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj",
+        "projectUniqueName": "C:\\Users\\oscar\\Desktop\\SchoolerzZ\\OscarMelPino\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj",
         "projectName": "LoginWPF",
-        "projectPath": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj",
-        "packagesPath": "C:\\Users\\admin-dam2b\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginWPF\\LoginWPF\\obj\\",
+        "projectPath": "C:\\Users\\oscar\\Desktop\\SchoolerzZ\\OscarMelPino\\SchoolerzZ\\LoginWPF\\LoginWPF\\LoginWPF.csproj",
+        "packagesPath": "C:\\Users\\oscar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oscar\\Desktop\\SchoolerzZ\\OscarMelPino\\SchoolerzZ\\LoginWPF\\LoginWPF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin-dam2b\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oscar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

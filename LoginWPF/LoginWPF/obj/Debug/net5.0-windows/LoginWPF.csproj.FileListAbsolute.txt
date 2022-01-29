@@ -1,0 +1,5 @@
+C:\Users\oscar\Desktop\SchoolerzZ\OscarMelPino\SchoolerzZ\LoginWPF\LoginWPF\obj\Debug\net5.0-windows\LoginWPF.csproj.AssemblyReference.cache
+C:\Users\oscar\Desktop\SchoolerzZ\OscarMelPino\SchoolerzZ\LoginWPF\LoginWPF\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\oscar\Desktop\SchoolerzZ\OscarMelPino\SchoolerzZ\LoginWPF\LoginWPF\obj\Debug\net5.0-windows\LoginWPF_Content.g.cs
+C:\Users\oscar\Desktop\SchoolerzZ\OscarMelPino\SchoolerzZ\LoginWPF\LoginWPF\obj\Debug\net5.0-windows\LoginWPF_MarkupCompile.cache
+C:\Users\oscar\Desktop\SchoolerzZ\OscarMelPino\SchoolerzZ\LoginWPF\LoginWPF\obj\Debug\net5.0-windows\LoginWPF.g.resources

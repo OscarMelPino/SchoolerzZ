@@ -7,8 +7,8 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Content Update="MainWindow.xaml">
       <SubType>Designer</SubType>
-    </Page>
+    </Content>
   </ItemGroup>
 </Project>
