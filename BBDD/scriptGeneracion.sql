@@ -171,6 +171,18 @@ CREATE TABLE IF NOT EXISTS SZ_102_Groups_Students(
     SZ_102_Id BINARY(16) PRIMARY KEY,
     SZ_102_Groups_Id BINARY(16) NOT NULL,
     SZ_102_Students_Id BINARY(16) NOT NULL,
+    SZ_102_Mark_1T INT,
+    SZ_102_Mark_2T INT,
+    SZ_102_Mark_3T INT,
+    SZ_102_Mark_F INT,
+    SZ_102_Absence_1T INT,
+    SZ_102_Absence_2T INT,
+    SZ_102_Absence_3T INT,
+    SZ_102_Absence_F INT,
+    SZ_102_J_Absence_1T INT,
+    SZ_102_J_Absence_2T INT,
+    SZ_102_J_Absence_3T INT,
+    SZ_102_J_Absence_F INT,
     FOREIGN KEY(SZ_102_Groups_Id)
         REFERENCES SZ_001_Groups(SZ_001_Id),
     FOREIGN KEY(SZ_102_Students_Id)
