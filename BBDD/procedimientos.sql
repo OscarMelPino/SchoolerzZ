@@ -61,6 +61,7 @@ create procedure AddStudent(in pv_School_Manager_Nick varchar(50),
                             in pt_Medical TEXT,
                             in pt_Observations TEXT,
                             in pt_Photo_Internal_Route TEXT,
+                            in pv_Licence varchar(29),
                             out pi_r int)
 begin 
 	declare vv_nick varchar(15);
@@ -101,7 +102,7 @@ begin
 		update sz_002_students set SZ_002_Medical = pt_Medical where SZ_002_Id = vb_id;
     end if;
     if pv_SN2 not like '' then
-		update sz_002_students set SZ_002_SN2 = pt_SN2 where SZ_002_Id = vb_id;
+		update sz_002_students set SZ_002_SN2 = pv_SN2 where SZ_002_Id = vb_id;
     end if;
     if pt_Observations not like '' then
 		update sz_002_students set SZ_002_Observations = pt_Observations where SZ_002_Id = vb_id;
@@ -110,7 +111,8 @@ begin
 		update sz_002_students set SZ_002_Photo_Internal_Route = pt_Photo_Internal_Route where SZ_002_Id = vb_id;
     end if;
     call CreateNick('S', vv_school_name, vb_id, @r_nick);
-    UPDATE sz_002_students SET SZ_002_Nick = @r_nick WHERE SZ_002_Id = vb_id;
+    UPDATE sz_002_students SET SZ_002_Nick = (select @r_nick) WHERE SZ_002_Id = vb_id;
+    UPDATE sz_015_Licences SET sz_015_Students_Id = vb_id, sz_015_Using = 1 where sz_015_Licence = pv_Licence;
     set pi_r = 0;
 end;
 // DELIMITER ;
@@ -272,9 +274,3 @@ BEGIN
         END WHILE;
 END
 // DELIMITER ;
-
-
-
-
-
-
