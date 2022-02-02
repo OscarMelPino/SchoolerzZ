@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Text.Json;
 
 namespace LoginSchoolerzZ
 {
@@ -56,7 +58,10 @@ namespace LoginSchoolerzZ
             String un = !String.IsNullOrEmpty(UserInput.Text.ToString()) ? UserInput.Text.ToString() : null;
             String pwd = !String.IsNullOrEmpty(PasswordInput.Password.ToString()) ? PasswordInput.Password.ToString() : null;
             if (un is null || pwd == null) return;
+            if ((bool)RemembermeCheckbox.IsChecked) remember(un, pwd);
             manager = new(letterOption[ComboboxUserType.SelectedIndex], un, GetMD5(pwd));
+            if (manager.Login() == 0) MessageBox.Show("Dentro.");
+            if (manager.Login() < 0) MessageBox.Show("Algo salió mal.");
         }
         public void Back(object sender, RoutedEventArgs e)
         {
@@ -78,6 +83,16 @@ namespace LoginSchoolerzZ
             stream = md5.ComputeHash(encoding.GetBytes(str));
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
+        }
+        public void remember(String username, String pwd)
+        {
+            var fileName = "user_data.json";
+            var path = "/Users/admin-dam2b/Desktop/SchoolerzZ/LoginSchoolerzZ/LoginSchoolerzZ/" + fileName;
+            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd };
+            var jsondata = JsonSerializer.Serialize(userdata);
+
+            // PETA, DICE QUE NO SE PUEDE ACCEDER A LA RUTA: C\user_data.
+            using FileStream fs = File.Create(path);
         }
     }
 }
