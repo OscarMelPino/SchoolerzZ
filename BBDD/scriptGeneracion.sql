@@ -27,6 +27,7 @@ SZ_008_Teachers,
 SZ_006_Schools,
 SZ_007_School_Managers;
 
+
 CREATE TABLE IF NOT EXISTS SZ_005_Skins(
     SZ_005_Id BINARY(16) PRIMARY KEY,
     SZ_005_Name VARCHAR(25) NOT NULL,
