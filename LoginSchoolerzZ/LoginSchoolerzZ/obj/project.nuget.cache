@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oPLCSx/zawuYCivyK9ZDwNxqI0HULU2/cj/s/P7v5GdrAPfxqUTZXOZ2CLXFRPCtU1Wn886vSr8ap9dOxXQOQA==",
+  "dgSpecHash": "avHsrTqcQU99deM1viEITfAuTBKDngfZKYPxDMgNnifaqLdGa6qJxAVMISWDomoQqQxMXpKNli+SLOCfVggQWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\admin-dam2b\\Desktop\\l\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\mysql.data\\8.0.28\\mysql.data.8.0.28.nupkg.sha512",
+    "C:\\Users\\admin-dam2b\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",

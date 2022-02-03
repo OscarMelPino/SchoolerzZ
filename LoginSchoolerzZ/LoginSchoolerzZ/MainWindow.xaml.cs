@@ -28,6 +28,7 @@ namespace LoginSchoolerzZ
         private ArrayList baseLogin = new();
         private ArrayList inputLogin = new();
         private Char[] letterOption = { 'S', 'P', 'T', 'A' };
+        private String path = "../../../user_data.json";
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace LoginSchoolerzZ
 
             inputLogin.Add(InputContainer);
             inputLogin.Add(ButtonLoginBackContainer);
+            ReadData();
         }
         public void UserTypeSet(object sender, RoutedEventArgs e)
         {
@@ -86,13 +88,20 @@ namespace LoginSchoolerzZ
         }
         public void remember(String username, String pwd)
         {
-            var fileName = "user_data.json";
-            var path = "/Users/admin-dam2b/Desktop/SchoolerzZ/LoginSchoolerzZ/LoginSchoolerzZ/" + fileName;
-            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd };
-            var jsondata = JsonSerializer.Serialize(userdata);
-
-            // PETA, DICE QUE NO SE PUEDE ACCEDER A LA RUTA: C\user_data.
             using FileStream fs = File.Create(path);
+            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd, Recordar = true};
+            byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(userdata));
+            fs.Write(data, 0, data.Length);
+        }
+        public void ReadData() 
+        {
+            using FileStream fs = File.OpenRead(path);
+            byte[] buf = new byte[1024];
+            int c;
+            //Aqui hay que hacer cosas
+            while ((c = fs.Read(buf, 0, buf.Length)) > 0)
+            {
+            }
         }
     }
 }

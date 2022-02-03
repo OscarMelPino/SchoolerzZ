@@ -61,3 +61,4 @@ C:\Users\admin-dam2b\Desktop\l\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\De
 C:\Users\admin-dam2b\Desktop\l\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\Debug\net5.0-windows\ref\LoginSchoolerzZ.dll
 C:\Users\admin-dam2b\Desktop\l\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.pdb
 C:\Users\admin-dam2b\Desktop\l\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.genruntimeconfig.cache
+C:\Users\admin-dam2b\Desktop\l\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
