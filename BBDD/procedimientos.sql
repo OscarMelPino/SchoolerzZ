@@ -274,3 +274,39 @@ BEGIN
         END WHILE;
 END
 // DELIMITER ;
+
+/* PA de login
+	Si devuelve 0 el usuario y la contraseña es correcta
+    Si devuelve -1 el usuario y la contrase son incorrectas*/
+
+DROP PROCEDURE IF EXISTS LoginAJ;
+DELIMITER //
+CREATE PROCEDURE LoginAJ(in pv_username varchar(40), in pv_password varchar(200), out pi_valid int)
+BEGIN
+	Declare vb_id binary(16);
+    Declare vc_type char;
+    
+   set vc_type = UPPER(SUBSTR(pv_username,1,1));
+   
+   IF vc_type = 'S' then 
+		set vb_id = (Select SZ_002_Id FROM sz_002_students WHERE SZ_002_Nick LIKE pv_username AND SZ_002_Password LIKE pv_password);
+	ELSE
+		IF vc_type = 'T' then 
+			set vb_id = (Select SZ_008_Id FROM sz_008_teachers WHERE SZ_008_Nick LIKE pv_username AND SZ_008_Password LIKE pv_password);
+		ELSE
+			IF vc_type = 'M' then 
+				set vb_id = (Select SZ_007_Id FROM sz_007_school_managers WHERE SZ_007_Nick LIKE pv_username AND SZ_007_Password LIKE pv_password);
+			ELSE 
+				IF vc_type = 'P' then 
+					set vb_id = (Select SZ_003_Id FROM sz_003_parents WHERE SZ_003_Nick LIKE pv_username AND SZ_003_Password LIKE pv_password);
+				END IF;
+			END IF;
+		END IF;
+	END IF;
+    IF vb_id IS NOT NULL THEN
+		set pi_valid = 0;
+	ELSE
+		set pi_valid = -1;
+	END IF;
+END
+// DELIMITER ;
