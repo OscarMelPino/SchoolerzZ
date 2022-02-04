@@ -28,7 +28,7 @@ namespace LoginSchoolerzZ
         private ArrayList baseLogin = new();
         private ArrayList inputLogin = new();
         private Char[] letterOption = { 'S', 'P', 'T', 'A' };
-        private String path = "../../../user_data.json";
+        private String path = "../../../data/user_data.json";
         public MainWindow()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace LoginSchoolerzZ
             String un = !String.IsNullOrEmpty(UserInput.Text.ToString()) ? UserInput.Text.ToString() : null;
             String pwd = !String.IsNullOrEmpty(PasswordInput.Password.ToString()) ? PasswordInput.Password.ToString() : null;
             if (un is null || pwd == null) return;
-            if ((bool)RemembermeCheckbox.IsChecked) remember(un, pwd);
+            remember(un, pwd);
             manager = new(letterOption[ComboboxUserType.SelectedIndex], un, GetMD5(pwd));
             if (manager.Login() == 0) MessageBox.Show("Dentro.");
             if (manager.Login() < 0) MessageBox.Show("Algo salió mal.");
@@ -89,18 +89,32 @@ namespace LoginSchoolerzZ
         public void remember(String username, String pwd)
         {
             using FileStream fs = File.Create(path);
-            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd, Recordar = true};
+            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd, Recordar = (Boolean)RemembermeCheckbox.IsChecked, Role = ComboboxUserType.SelectedIndex };
             byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(userdata));
             fs.Write(data, 0, data.Length);
+            fs.Close();
         }
         public void ReadData() 
         {
-            using FileStream fs = File.OpenRead(path);
-            byte[] buf = new byte[1024];
-            int c;
-            //Aqui hay que hacer cosas
-            while ((c = fs.Read(buf, 0, buf.Length)) > 0)
+            using (StreamReader r = new StreamReader(path))
             {
+                string json = r.ReadToEnd();
+                LivingPerson data_recovered = Newtonsoft.Json.JsonConvert.DeserializeObject<LivingPerson>(json);
+                try
+                {
+                    if (data_recovered.Recordar) 
+                    {
+                        UserInput.Text = data_recovered.Username;
+                        PasswordInput.Password = data_recovered.Password;
+                        RemembermeCheckbox.IsChecked = data_recovered.Recordar;
+                        ComboboxUserType.SelectedIndex = data_recovered.Role;
+                    }
+                    r.Close();
+                }
+                catch (Exception e)
+                {
+                    r.Close();
+                }
             }
         }
     }

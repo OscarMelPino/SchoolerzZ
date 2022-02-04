@@ -11,6 +11,7 @@ namespace LoginSchoolerzZ
         public String Username { get; set; }
         public String Password { get; set; }
         public Boolean Recordar { get; set; }
+        public int Role { get; set; }
 
         public LivingPerson() { }
     }

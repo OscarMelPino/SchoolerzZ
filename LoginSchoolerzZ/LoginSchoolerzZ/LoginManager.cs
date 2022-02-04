@@ -22,7 +22,7 @@ namespace LoginSchoolerzZ
             Password = pwd;
             schoolerz = new();
         }
-        public int Login()
+        public int Login(int type)
         {
             return schoolerz.TryLogin(Username, Password);
         }
