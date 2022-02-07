@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj": {}
+    "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj": {
+    "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
+        "projectUniqueName": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
         "projectName": "LoginSchoolerzZ",
-        "projectPath": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
+        "projectPath": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
         "packagesPath": "C:\\Users\\admin-dam2b\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\obj\\",
+        "outputPath": "C:\\Users\\admin-dam2b\\Desktop\\SchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin-dam2b\\AppData\\Roaming\\NuGet\\NuGet.Config",

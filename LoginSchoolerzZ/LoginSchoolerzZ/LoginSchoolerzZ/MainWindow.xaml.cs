@@ -29,6 +29,8 @@ namespace LoginSchoolerzZ
         private ArrayList inputLogin = new();
         private Char[] letterOption = { 'S', 'P', 'T', 'A' };
         private String path = "../../../data/user_data.json";
+        private String[] resolutions = { "600x400", "800x600", "1000x650", "1000x650", "1920x1080" };
+        private ArrayList radioButtons = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +40,14 @@ namespace LoginSchoolerzZ
             inputLogin.Add(InputContainer);
             inputLogin.Add(ButtonLoginBackContainer);
             ReadData();
+            radioButtons.Add(r600x400);
+            radioButtons.Add(r800x600);
+            radioButtons.Add(r1000x650);
+            radioButtons.Add(r1600x1050);
+            radioButtons.Add(r1920x1080);
+            manager = new();
+            DataContext = manager;
+            r1000x650.IsChecked = true;
         }
         public void UserTypeSet(object sender, RoutedEventArgs e)
         {
@@ -102,6 +112,42 @@ namespace LoginSchoolerzZ
             byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(userdata));
             fs.Write(data, 0, data.Length);
             fs.Close();
+        }
+        public void OpenOptionsButton(object sender, RoutedEventArgs e)
+        {
+            if (OptionsContainer.Visibility is Visibility.Visible)
+            {
+                OptionsContainer.Visibility = Visibility.Collapsed;
+                return;
+            }
+            OptionsContainer.Visibility = Visibility.Visible;
+        }
+        public void SoundOptionButton(object sender, RoutedEventArgs e)
+        {
+            if (OptionSoundContainer.Visibility is Visibility.Visible)
+            {
+                OptionSoundContainer.Visibility = Visibility.Collapsed;
+                return;
+            }
+            OptionSoundContainer.Visibility = Visibility.Visible;
+        }
+        public void ConfirmResolutionButton(object sender, RoutedEventArgs e)
+        {
+            var res = "";
+            int index = 0;
+            foreach (RadioButton element in radioButtons)
+            {
+                if ((bool)element.IsChecked)
+                {
+                    res = resolutions[index];
+                    break;
+                }
+                index++;
+            }
+            String ne = res.Substring(0, res.IndexOf('x'));
+            String se = res.Substring(res.IndexOf('x') + 1, res.Length - ne.Length - 1);
+            manager.Width = int.Parse(ne);
+            manager.Height = int.Parse(se);
         }
         public void ReadData() 
         {

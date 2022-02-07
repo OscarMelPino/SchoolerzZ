@@ -9,13 +9,32 @@ using System.Windows;
 
 namespace LoginSchoolerzZ
 {
-    public class LoginManager 
+    public class LoginManager : INotifyPropertyChanged
     {
         private DatabaseConnection schoolerz = new();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private int ancho;
+        private int alto;
         private String Username { get ; set;}
         private String Password { get; set; }
-        public LoginManager(){ schoolerz = new(); }
+        public int Width
+        {
+            get => ancho;
+            set
+            {
+                ancho = value;
+                OnPropertyChanged("Width");
+            }
+        }
+        public int Height { get => alto; set { alto = value;OnPropertyChanged("Height");}}
+        public LoginManager()
+        { 
+            schoolerz = new();
+            ancho = 1000;
+            alto = 650;
+        }
         public LoginManager(char userType, String username, String pwd )
         {
             Username = userType + username;
@@ -25,6 +44,10 @@ namespace LoginSchoolerzZ
         public int Login()
         {
             return schoolerz.TryLogin(Username, Password);
+        }
+        public void OnPropertyChanged(string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }
