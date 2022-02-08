@@ -16,7 +16,7 @@ begin
             set vi_cont = vi_cont + 1;
             set vi_cont_2 = 0;
 		else
-			set vv_word = concat(vv_word, upper(substr('abcdefghijklmnopqrstuvwxyz1234567890', floor(rand()*36), 1)));
+			set vv_word = concat(vv_word, upper(substr('abcdefghijklmnopqrstuvwxyz1234567890', floor(rand()*35), 1)));
 			set vi_cont = vi_cont + 1;
             set vi_cont_2 = vi_cont_2 + 1;
         end if;
@@ -71,5 +71,23 @@ BEGIN
 end
 // DELIMITER ;
         
+drop function if exists CreatePassword;
+
+DELIMITER //
+CREATE FUNCTION CreatePassword() 
+
+       RETURNS varchar(8)
+BEGIN
+	declare vv_word varchar(8);
+	set vv_word = concat(upper(substr('abcdefghijklmnopqrstuvwxyz', floor(rand()*25), 1)));
+	set vv_word = concat(vv_word, substr('abcdefghijklmnopqrstuvwxyz', floor(rand()*25), 1));
+    set vv_word = concat(vv_word, substr('1234567890', floor(rand()*9), 1));
+    set vv_word = concat(vv_word, substr('1234567890', floor(rand()*9), 1));
+    set vv_word = concat(vv_word, substr('%$&#-@/+', floor(rand()*7), 1));
+    set vv_word = concat(vv_word, substr('abcdefghijklmnopqrstuvwxyz', floor(rand()*25), 1));
+    set vv_word = concat(vv_word, substr('%$&#-@/+', floor(rand()*7), 1));
+    set vv_word = concat(vv_word, upper(substr('abcdefghijklmnopqrstuvwxyz', floor(rand()*25), 1)));
+    RETURN vv_word;
+END
+// DELIMITER ;
         
-       
