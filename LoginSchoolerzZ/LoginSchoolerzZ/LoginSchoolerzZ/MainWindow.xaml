@@ -16,6 +16,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <StackPanel x:Name="Fondo" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
@@ -31,8 +32,8 @@
                        FontSize="35" FontWeight="Bold" Foreground="#FF264653"
                        TextWrapping="NoWrap" MaxWidth="200" FontStyle="Normal" TextDecorations="Underline"/>
         </StackPanel>
-        <StackPanel x:Name="BrandLogoContainer" Grid.Row="1" Visibility="Collapsed">
-            <Image Source="/Media/Images/main_logo.jpg" />
+        <StackPanel x:Name="BrandLogoContainer" Grid.Row="1" >
+            <Image Source="/Media/Images/main_logo.png" />
         </StackPanel>
         <StackPanel x:Name="BrandSocialMediaContainer" Grid.Row="2"
                     HorizontalAlignment="Center" 
@@ -93,8 +94,7 @@
             <CheckBox x:Name="RemembermeCheckbox" Content="Recuérdame" FontSize="25" />
         </StackPanel>
         <StackPanel x:Name="UserTypeContainer" Grid.Column="1" Grid.Row="1"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Visibility="Collapsed">
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
             <TextBlock  Text="Elige tu tipo de usuario"
                         FontSize="25" FontWeight="DemiBold" Foreground="#FF264653"
                        TextWrapping="NoWrap" Margin="0,0,0,20"/>
@@ -104,26 +104,23 @@
                 <ComboBoxItem Content="Profesor" x:Name="ComboItemUserTypeTeacher" FontSize="20"/>
                 <ComboBoxItem Content="Administrador" x:Name="ComboItemUserTypeSchoolManager" FontSize="20"/>
             </ComboBox>
-        </StackPanel>
-        <StackPanel x:Name="ButtonLoginBackContainer" Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Visibility="Collapsed" HorizontalAlignment="Center">
-            <Button x:Name="ButtonSendLoginData" Content="Entrar" Click="MakeLogin"
-                    Width="175" Height="50"/>
-            <Button x:Name="ButtonBack" Content="Atrás Satanás!" Click="Back" 
-                    Width="175" Height="50" Margin="110,0,0,0"/>
+
         </StackPanel>
         <StackPanel x:Name="ButtonNextContainer" Grid.Row="2" Grid.Column="1" Orientation="Horizontal"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Visibility="Collapsed">
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
             <Button x:Name="ButtonUserTypeSet" Content="Siguiente" Click="UserTypeSet" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"
                     Width="175" Height="50"/>
 
         </StackPanel>
-
+        <StackPanel Grid.Row="2" Grid.Column="1" x:Name="ButtonLoginBackContainer" Orientation="Horizontal" Visibility="Collapsed">
+            <Button Content="Entrar" Click="MakeLogin" Width="100"/>
+            <Button Content="Atrás" Click="Back" Width="100" Margin="50,0,0,0"/>
+        </StackPanel>
         <StackPanel x:Name="StartContainer"
                     Grid.Row="1" Grid.Column="1"
                     Grid.ColumnSpan="2" Grid.RowSpan="2"
-                    Visibility="Collapsed"
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="Visible">
 
             <StackPanel x:Name="ButtonOpenContainer">
 
@@ -157,24 +154,11 @@
             </StackPanel>
 
         </StackPanel>
-
-        <Button x:Name="ButtonPantallaOpciones"
-                Template="{StaticResource CTMiBotton}"
-                Style="{StaticResource MiBottonStandard}"
-                Grid.Row="2" Grid.Column="1"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                Margin="0,0,10,11"
-                Width="50" Height="50"
-                Click="OpenOptionsButton">
-            <Button.Background>
-                <ImageBrush ImageSource="/Media/Images/icono-opciones.png"/>
-            </Button.Background>
-        </Button>
-        <StackPanel Grid.Row="1" x:Name="OptionsContainer" Visibility="Visible">
-            <Button Content="IMAGENES" Margin="30,0,0,0" Width="50" Height="35" />
-            <Button Content="SONIDO" Margin="30,0,0,0" Width="50" Height="35" />
+        <StackPanel Grid.Row="1" x:Name="OptionsContainer" Visibility="Collapsed">
+            <Button Content="IMAGENES" Margin="30,0,0,0" Width="50" Height="35" Click="ImageOptionClick" />
+            <Button Content="SONIDO" Margin="30,0,0,0" Width="50" Height="35" Click="SoundOptionClick"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" >
+        <StackPanel x:Name="ResolutionsContainer" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
             <TextBlock Text="Reolución"/>
             <RadioButton x:Name="r600x400" Content="600x400"/>
             <RadioButton x:Name="r800x600" Content="800x600"/>
@@ -187,5 +171,17 @@
             <Slider Orientation="Vertical" Height="168" HorizontalAlignment="Center"/>
             <Button Width="40" Height="40" VerticalAlignment="Bottom" Name="MuteSoundButton"/>
         </StackPanel>
+        <Button x:Name="ButtonPantallaOpciones"
+                Template="{StaticResource CTMiBotton}"
+                Style="{StaticResource MiBottonStandard}"
+                Grid.Row="2" Grid.Column="1"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="0,0,10,11"
+                Width="50" Height="50"
+                Click="OpenOptionsButton">
+            <Button.Background>
+                <ImageBrush ImageSource="/Media/Images/icono-opciones.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

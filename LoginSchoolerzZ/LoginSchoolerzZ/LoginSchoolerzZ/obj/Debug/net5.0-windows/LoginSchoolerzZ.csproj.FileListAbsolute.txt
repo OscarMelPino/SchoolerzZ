@@ -147,7 +147,6 @@ C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchooler
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\icons8-facebook-240.png
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\icons8-instagram-240.png
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\icons8-twitter-240.png
-C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\main_logo.jpg
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\LoginSchoolerzZ.deps.json
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\LoginSchoolerzZ.runtimeconfig.json
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\LoginSchoolerzZ.runtimeconfig.dev.json
@@ -182,3 +181,6 @@ C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchooler
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\Debug\net5.0-windows\ref\LoginSchoolerzZ.dll
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.pdb
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.genruntimeconfig.cache
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\brand.png
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\branded_logo.png
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\main_logo.png

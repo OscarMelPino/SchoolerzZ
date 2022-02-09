@@ -27,6 +27,10 @@ namespace LoginSchoolerzZ
         private LoginManager manager;
         private ArrayList baseLogin = new();
         private ArrayList inputLogin = new();
+        private ArrayList mid_stackpanels = new();
+        private ArrayList option_stackpanels = new();
+        private StackPanel last_mid_sp_used = null;
+        private StackPanel last_options_sp_used = null;
         private Char[] letterOption = { 'S', 'P', 'T', 'A' };
         private String path = "../../../data/user_data.json";
         private String[] resolutions = { "600x400", "800x600", "1000x650", "1000x650", "1920x1080" };
@@ -34,20 +38,25 @@ namespace LoginSchoolerzZ
         public MainWindow()
         {
             InitializeComponent();
+            ReadData();
             baseLogin.Add(UserTypeContainer);
             baseLogin.Add(ButtonNextContainer);
-
             inputLogin.Add(InputContainer);
             inputLogin.Add(ButtonLoginBackContainer);
-            ReadData();
             radioButtons.Add(r600x400);
             radioButtons.Add(r800x600);
             radioButtons.Add(r1000x650);
             radioButtons.Add(r1600x1050);
             radioButtons.Add(r1920x1080);
+            mid_stackpanels.Add(StartContainer);
+            mid_stackpanels.Add(InputContainer);
+            mid_stackpanels.Add(UserTypeContainer);
+            option_stackpanels.Add(ResolutionsContainer);
+            option_stackpanels.Add(OptionSoundContainer);
+            r1000x650.IsChecked = true;
+            last_options_sp_used = ResolutionsContainer;
             manager = new();
             DataContext = manager;
-            r1000x650.IsChecked = true;
         }
         public void UserTypeSet(object sender, RoutedEventArgs e)
         {
@@ -86,6 +95,7 @@ namespace LoginSchoolerzZ
                 element.Visibility = Visibility.Collapsed;
             }
         }
+        
         public void EnterLogin(object sender, RoutedEventArgs e)
         {
             foreach (StackPanel element in baseLogin)
@@ -95,6 +105,7 @@ namespace LoginSchoolerzZ
 
             StartContainer.Visibility = Visibility.Collapsed;
         }
+        
         public static string GetMD5(string str)
         {
             MD5 md5 = MD5CryptoServiceProvider.Create();
@@ -105,6 +116,7 @@ namespace LoginSchoolerzZ
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
+       
         public void remember(String username, String pwd)
         {
             using FileStream fs = File.Create(path);
@@ -115,21 +127,30 @@ namespace LoginSchoolerzZ
         }
         public void OpenOptionsButton(object sender, RoutedEventArgs e)
         {
-            if (OptionsContainer.Visibility is Visibility.Visible)
+            foreach (StackPanel item in mid_stackpanels)
             {
-                OptionsContainer.Visibility = Visibility.Collapsed;
+                if (item.Visibility is Visibility.Visible) last_mid_sp_used = item;
+            }
+            foreach (StackPanel item in option_stackpanels)
+            {
+                if (item.Visibility is Visibility.Visible) last_options_sp_used = item;
+            }
+            if (OptionsContainer.Visibility is Visibility.Collapsed)
+            {
+                if (last_mid_sp_used == UserTypeContainer) ButtonNextContainer.Visibility = Visibility.Collapsed;
+                if (last_mid_sp_used == InputContainer) ButtonLoginBackContainer.Visibility = Visibility.Collapsed;
+                OptionsContainer.Visibility = Visibility.Visible;
+                last_mid_sp_used.Visibility = Visibility.Collapsed;
+                last_options_sp_used.Visibility = Visibility.Visible;
+                BrandLogoContainer.Visibility = Visibility.Collapsed;
                 return;
             }
-            OptionsContainer.Visibility = Visibility.Visible;
-        }
-        public void SoundOptionButton(object sender, RoutedEventArgs e)
-        {
-            if (OptionSoundContainer.Visibility is Visibility.Visible)
-            {
-                OptionSoundContainer.Visibility = Visibility.Collapsed;
-                return;
-            }
-            OptionSoundContainer.Visibility = Visibility.Visible;
+            OptionsContainer.Visibility = Visibility.Collapsed;
+            last_mid_sp_used.Visibility = Visibility.Visible;
+            last_options_sp_used.Visibility = Visibility.Collapsed;
+            BrandLogoContainer.Visibility = Visibility.Visible;
+            if (last_mid_sp_used == UserTypeContainer) ButtonNextContainer.Visibility = Visibility.Visible;
+            if (last_mid_sp_used == InputContainer) ButtonLoginBackContainer.Visibility = Visibility.Visible;
         }
         public void ConfirmResolutionButton(object sender, RoutedEventArgs e)
         {
@@ -171,6 +192,16 @@ namespace LoginSchoolerzZ
                     r.Close();
                 }
             }
+        }
+        public void SoundOptionClick(object sender, RoutedEventArgs e)
+        {
+            ResolutionsContainer.Visibility = Visibility.Collapsed;
+            OptionSoundContainer.Visibility = Visibility.Visible;
+        }
+        public void ImageOptionClick(object sender, RoutedEventArgs e)
+        {
+            ResolutionsContainer.Visibility = Visibility.Visible;
+            OptionSoundContainer.Visibility = Visibility.Collapsed;
         }
     }
 }

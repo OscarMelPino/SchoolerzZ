@@ -7,14 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Media\Images\brand.png" />
+    <None Remove="Media\Images\branded_logo.png" />
     <None Remove="Media\Images\icono-opciones.png" />
     <None Remove="Media\Images\icons8-facebook-240.png" />
     <None Remove="Media\Images\icons8-instagram-240.png" />
     <None Remove="Media\Images\icons8-twitter-240.png" />
-    <None Remove="Media\Images\main_logo.jpg" />
+    <None Remove="Media\Images\main_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Media\Images\brand.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\branded_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Media\Images\icono-opciones.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -27,7 +35,7 @@
     <Content Include="Media\Images\icons8-twitter-240.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Media\Images\main_logo.jpg">
+    <Content Include="Media\Images\main_logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
