@@ -108,19 +108,26 @@
         </StackPanel>
         <StackPanel x:Name="ButtonNextContainer" Grid.Row="2" Grid.Column="1" Orientation="Horizontal"
                     HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-            <Button x:Name="ButtonUserTypeSet" Content="Siguiente" Click="UserTypeSet" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"
+            <Button Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonStandard}"
+                    x:Name="ButtonUserTypeSet" Content="Siguiente" Click="UserTypeSet" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"
                     Width="175" Height="50"/>
 
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="1" x:Name="ButtonLoginBackContainer" Orientation="Horizontal" Visibility="Collapsed">
-            <Button Content="Entrar" Click="MakeLogin" Width="100"/>
-            <Button Content="Atrás" Click="Back" Width="100" Margin="50,0,0,0"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" x:Name="ButtonLoginBackContainer" Orientation="Horizontal" Visibility="Collapsed"
+                    HorizontalAlignment="Center">
+            <Button Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonStandard}" 
+                    Content="Entrar" Click="MakeLogin" Width="175" Height="50" />
+            <Button Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonStandard}"
+                    Content="Atrás" Click="Back" Width="175" Height="50" Margin="50,0,0,0"/>
         </StackPanel>
         <StackPanel x:Name="StartContainer"
                     Grid.Row="1" Grid.Column="1"
                     Grid.ColumnSpan="2" Grid.RowSpan="2"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Visibility="Visible">
+                    >
 
             <StackPanel x:Name="ButtonOpenContainer">
 
@@ -154,9 +161,13 @@
             </StackPanel>
 
         </StackPanel>
-        <StackPanel Grid.Row="1" x:Name="OptionsContainer" Visibility="Collapsed">
-            <Button Content="IMAGENES" Margin="30,0,0,0" Width="50" Height="35" Click="ImageOptionClick" />
-            <Button Content="SONIDO" Margin="30,0,0,0" Width="50" Height="35" Click="SoundOptionClick"/>
+        <StackPanel Grid.Row="1" x:Name="OptionsContainer" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Template="{StaticResource CTMiBotton}"
+                    Style="{StaticResource MiBottonStandard}" 
+                    Content="IMAGENES" Margin="30,0,0,0" Width="180" Height="40" Click="ImageOptionClick" />
+            <Button Template="{StaticResource CTMiBotton}"
+                    Style="{StaticResource MiBottonStandard}"
+                    Content="SONIDO" Margin="30,0,0,0" Width="180" Height="40" Click="SoundOptionClick"/>
         </StackPanel>
         <StackPanel x:Name="ResolutionsContainer" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
             <TextBlock Text="Reolución"/>
@@ -165,11 +176,43 @@
             <RadioButton x:Name="r1000x650" Content="1000x650"/>
             <RadioButton x:Name="r1600x1050" Content="1600x1050"/>
             <RadioButton x:Name="r1920x1080" Content="1920x1080"/>
-            <Button Content="Confirmar" Click="ConfirmResolutionButton"/>
+            <Button Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonEspecial}"
+                    Content="Confirmar" Click="ConfirmResolutionButton"
+                    Margin="0,50,0,0" Height="50"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" x:Name="OptionSoundContainer" Visibility="Collapsed">
-            <Slider Orientation="Vertical" Height="168" HorizontalAlignment="Center"/>
-            <Button Width="40" Height="40" VerticalAlignment="Bottom" Name="MuteSoundButton"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" x:Name="OptionSoundContainer" 
+                    VerticalAlignment="Center" Margin="0,0,0,100"
+                    Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <Button Width="40" Height="40" VerticalAlignment="Bottom" Name="MuteSoundButton"/>
+                <Slider HorizontalAlignment="Center" Width="450" Margin="20,10,20,0"/>
+                <Button Width="40" Height="40" VerticalAlignment="Bottom" Name="MaxSoundButton"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                        Margin="0,50,0,0">
+                <StackPanel Width="150">
+                    <Button Content="Efecto 1" Margin="10,0,10,10" Height="50"/>
+                    <RadioButton HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Width="150" >
+                    <Button Content="Efecto 2" Margin="10,0,10,10" Height="50"/>
+                    <RadioButton HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Width="150">
+                    <Button Content="Efecto 3" Margin="10,0,10,10" Height="50" />
+                    <RadioButton HorizontalAlignment="Center"/>
+                </StackPanel>
+                
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Template="{StaticResource CTMiBottonAnimado}"
+                        Style="{StaticResource MiBottonEspecial}" 
+                        Content="Confirmar"
+                        Click="ConfirmSoundButton"
+                        Margin="0,50,0,0"
+                        Height="50"/>
+                </StackPanel>
         </StackPanel>
         <Button x:Name="ButtonPantallaOpciones"
                 Template="{StaticResource CTMiBotton}"

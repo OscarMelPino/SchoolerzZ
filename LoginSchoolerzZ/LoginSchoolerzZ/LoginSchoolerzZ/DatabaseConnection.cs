@@ -53,7 +53,7 @@ namespace LoginSchoolerzZ
         {
             connection.Close();
         }
-        // TO DO : ejecutar procedimiento en funcion del parmatro de entrada (1 > 4)
+        // TODO : ejecutar procedimiento en funcion del parmatro de entrada (1 > 4)
         public int TryLogin(string username, string password)
         {
             MakeConnection();

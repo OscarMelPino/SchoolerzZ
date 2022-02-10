@@ -22,7 +22,8 @@
         <Setter Property="FontFamily" Value="Bahnschrift"/>
         <Setter Property="Foreground" Value="#FF264653"/>
         <Setter Property="Background" Value="#FFBFBA80"/>
-
+        <Setter Property="Height" Value="75"/>
+        <Setter Property="Width" Value="150"/>
         <!--<Style.Triggers>
             <EventTrigger RoutedEvent="Button.Click">
                 <EventTrigger.Actions>
@@ -59,6 +60,9 @@
         <Setter Property="Foreground" Value="#FFB40F46"/>
         <Setter Property="Background" Value="#FFD59966"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Height" Value="75"/>
+        <Setter Property="Width" Value="150"/>
     </Style>
 
     <ControlTemplate x:Key="CTMiBotton" TargetType="Button">

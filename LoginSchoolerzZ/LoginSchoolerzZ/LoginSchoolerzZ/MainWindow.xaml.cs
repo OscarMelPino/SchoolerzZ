@@ -58,6 +58,49 @@ namespace LoginSchoolerzZ
             manager = new();
             DataContext = manager;
         }
+        public void ReadData() 
+        {
+            using (StreamReader r = new StreamReader(path))
+            {
+                string json = r.ReadToEnd();
+                LivingPerson data_recovered = Newtonsoft.Json.JsonConvert.DeserializeObject<LivingPerson>(json);
+                try
+                {
+                    if (data_recovered.Recordar) 
+                    {
+                        UserInput.Text = data_recovered.Username;
+                        PasswordInput.Password = data_recovered.Password;
+                        RemembermeCheckbox.IsChecked = data_recovered.Recordar;
+                        ComboboxUserType.SelectedIndex = data_recovered.Role;
+                    }
+                    r.Close();
+                }
+                catch (Exception e)
+                {
+                    r.Close();
+                }
+            }
+        }
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = MD5CryptoServiceProvider.Create();
+            ASCIIEncoding encoding = new ();
+            byte[] stream = null;
+            StringBuilder sb = new ();
+            stream = md5.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+       
+        public void remember(String username, String pwd)
+        {
+            using FileStream fs = File.Create(path);
+            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd, Recordar = (Boolean)RemembermeCheckbox.IsChecked, Role = ComboboxUserType.SelectedIndex };
+            byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(userdata));
+            fs.Write(data, 0, data.Length);
+            fs.Close();
+        }
+        // BOTONES
         public void UserTypeSet(object sender, RoutedEventArgs e)
         {
             if (ComboboxUserType.SelectedItem is null)
@@ -106,25 +149,6 @@ namespace LoginSchoolerzZ
             StartContainer.Visibility = Visibility.Collapsed;
         }
         
-        public static string GetMD5(string str)
-        {
-            MD5 md5 = MD5CryptoServiceProvider.Create();
-            ASCIIEncoding encoding = new ();
-            byte[] stream = null;
-            StringBuilder sb = new ();
-            stream = md5.ComputeHash(encoding.GetBytes(str));
-            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-            return sb.ToString();
-        }
-       
-        public void remember(String username, String pwd)
-        {
-            using FileStream fs = File.Create(path);
-            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd, Recordar = (Boolean)RemembermeCheckbox.IsChecked, Role = ComboboxUserType.SelectedIndex };
-            byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(userdata));
-            fs.Write(data, 0, data.Length);
-            fs.Close();
-        }
         public void OpenOptionsButton(object sender, RoutedEventArgs e)
         {
             foreach (StackPanel item in mid_stackpanels)
@@ -170,28 +194,9 @@ namespace LoginSchoolerzZ
             manager.Width = int.Parse(ne);
             manager.Height = int.Parse(se);
         }
-        public void ReadData() 
+        public void ConfirmSoundButton(object sender, RoutedEventArgs e)
         {
-            using (StreamReader r = new StreamReader(path))
-            {
-                string json = r.ReadToEnd();
-                LivingPerson data_recovered = Newtonsoft.Json.JsonConvert.DeserializeObject<LivingPerson>(json);
-                try
-                {
-                    if (data_recovered.Recordar) 
-                    {
-                        UserInput.Text = data_recovered.Username;
-                        PasswordInput.Password = data_recovered.Password;
-                        RemembermeCheckbox.IsChecked = data_recovered.Recordar;
-                        ComboboxUserType.SelectedIndex = data_recovered.Role;
-                    }
-                    r.Close();
-                }
-                catch (Exception e)
-                {
-                    r.Close();
-                }
-            }
+            return;
         }
         public void SoundOptionClick(object sender, RoutedEventArgs e)
         {
