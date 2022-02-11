@@ -32,8 +32,8 @@ namespace LoginSchoolerzZ
         private StackPanel last_mid_sp_used = null;
         private StackPanel last_options_sp_used = null;
         private Char[] letterOption = { 'S', 'P', 'T', 'A' };
-        private String path = "../../../data/user_data.json";
-        private String[] resolutions = { "600x400", "800x600", "1000x650", "1000x650", "1920x1080" };
+        private string path = "../../../data/user_data.json";
+        private string[] resolutions = { "600x400", "800x600", "1000x650", "1000x650", "1920x1080" };
         private ArrayList radioButtons = new();
         public MainWindow()
         {
@@ -55,10 +55,12 @@ namespace LoginSchoolerzZ
             option_stackpanels.Add(OptionSoundContainer);
             r1000x650.IsChecked = true;
             last_options_sp_used = ResolutionsContainer;
-            manager = new();
             DataContext = manager;
+            manager = new();
+            PutSelectedTrack();
+            ReadConfig();
         }
-        public void ReadData() 
+        public void ReadData()
         {
             using (StreamReader r = new StreamReader(path))
             {
@@ -66,7 +68,7 @@ namespace LoginSchoolerzZ
                 LivingPerson data_recovered = Newtonsoft.Json.JsonConvert.DeserializeObject<LivingPerson>(json);
                 try
                 {
-                    if (data_recovered.Recordar) 
+                    if (data_recovered.Recordar)
                     {
                         UserInput.Text = data_recovered.Username;
                         PasswordInput.Password = data_recovered.Password;
@@ -75,37 +77,61 @@ namespace LoginSchoolerzZ
                     }
                     r.Close();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     r.Close();
                 }
             }
         }
+        public void ReadConfig()
+        {
+            using (StreamReader r = new StreamReader("../../../config.json"))
+            {
+                string json = r.ReadToEnd();
+                Config data_recovered = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(json);
+                manager.Volume = data_recovered.MasterVolume;    
+                manager.Track = data_recovered.LastTrack;    
+                manager.Height = data_recovered.HeighResolution;    
+                manager.Width = data_recovered.WidthResolution;    
+                r.Close();
+            }
+        }
         public static string GetMD5(string str)
         {
             MD5 md5 = MD5CryptoServiceProvider.Create();
-            ASCIIEncoding encoding = new ();
+            ASCIIEncoding encoding = new();
             byte[] stream = null;
-            StringBuilder sb = new ();
+            StringBuilder sb = new();
             stream = md5.ComputeHash(encoding.GetBytes(str));
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
-       
-        public void remember(String username, String pwd)
+
+        public void Remember()
         {
             using FileStream fs = File.Create(path);
-            LivingPerson userdata = new LivingPerson { Username = username, Password = pwd, Recordar = (Boolean)RemembermeCheckbox.IsChecked, Role = ComboboxUserType.SelectedIndex };
+            LivingPerson userdata = new LivingPerson {
+                Username = UserInput.Text.ToString(), 
+                Password = PasswordInput.Password.ToString(), 
+                Recordar = (Boolean)RemembermeCheckbox.IsChecked, 
+                Role = ComboboxUserType.SelectedIndex 
+            };
             byte[] data = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(userdata));
             fs.Write(data, 0, data.Length);
             fs.Close();
+        }
+        public void PutSelectedTrack()
+        {
+            if (manager.Track == 0) SFX1.IsChecked = true;
+            if (manager.Track == 1) SFX2.IsChecked = true;
+            if (manager.Track == 2) SFX3.IsChecked = true;
         }
         // BOTONES
         public void UserTypeSet(object sender, RoutedEventArgs e)
         {
             if (ComboboxUserType.SelectedItem is null)
             {
-                MessageBox.Show("No puede estar vacío.");
+                MessageBox.Show("No puede estar vacío.", "Tipo vacío", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
             foreach (StackPanel element in inputLogin)
@@ -121,11 +147,18 @@ namespace LoginSchoolerzZ
         {
             String un = !String.IsNullOrEmpty(UserInput.Text.ToString()) ? UserInput.Text.ToString() : null;
             String pwd = !String.IsNullOrEmpty(PasswordInput.Password.ToString()) ? PasswordInput.Password.ToString() : null;
-            if (un is null || pwd == null) return;
-            remember(un, pwd);
-            manager = new(letterOption[ComboboxUserType.SelectedIndex], un, GetMD5(pwd));
+            if (un is null || pwd == null) 
+            { 
+                MessageBox.Show("No puede haber campos vacíos.", "Faltan datos.", MessageBoxButton.OK, MessageBoxImage.Warning); 
+                return; 
+            }
+            Remember();
+            int track = 0;
+            track = (bool)SFX2.IsChecked ? 1 : track;
+            track = (bool)SFX3.IsChecked ? 2 : track;
+            manager = new(letterOption[ComboboxUserType.SelectedIndex], un, GetMD5(pwd), track);
             if (manager.Login() == 0) MessageBox.Show("Dentro.");
-            if (manager.Login() < 0) MessageBox.Show("Algo salió mal.");
+            if (manager.Login() < 0) MessageBox.Show("Datos de inicio de sesión incorrectos.", "Error al iniciar sesión", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         public void Back(object sender, RoutedEventArgs e)
         {
@@ -138,7 +171,7 @@ namespace LoginSchoolerzZ
                 element.Visibility = Visibility.Collapsed;
             }
         }
-        
+
         public void EnterLogin(object sender, RoutedEventArgs e)
         {
             foreach (StackPanel element in baseLogin)
@@ -148,7 +181,7 @@ namespace LoginSchoolerzZ
 
             StartContainer.Visibility = Visibility.Collapsed;
         }
-        
+
         public void OpenOptionsButton(object sender, RoutedEventArgs e)
         {
             foreach (StackPanel item in mid_stackpanels)
@@ -193,10 +226,14 @@ namespace LoginSchoolerzZ
             String se = res.Substring(res.IndexOf('x') + 1, res.Length - ne.Length - 1);
             manager.Width = int.Parse(ne);
             manager.Height = int.Parse(se);
+            manager.UpdateConfig();
         }
         public void ConfirmSoundButton(object sender, RoutedEventArgs e)
         {
-            return;
+            if (SFX1.IsChecked is true) manager.Change(1);
+            if (SFX2.IsChecked is true) manager.Change(2);
+            if (SFX3.IsChecked is true) manager.Change(3);
+            manager.UpdateConfig();
         }
         public void SoundOptionClick(object sender, RoutedEventArgs e)
         {
@@ -207,6 +244,26 @@ namespace LoginSchoolerzZ
         {
             ResolutionsContainer.Visibility = Visibility.Visible;
             OptionSoundContainer.Visibility = Visibility.Collapsed;
+        }
+        public void MuteSound(object sender, RoutedEventArgs e) { manager.Volume = 0; }
+        public void MaxSound(object sender, RoutedEventArgs e) { manager.Volume = 10; }
+        public void SoundOne(object sender, RoutedEventArgs e) 
+        {
+            SFX1.IsChecked = true;
+            manager.Change(1);
+            manager.Play();
+        }
+        public void SoundTwo(object sender, RoutedEventArgs e) 
+        {
+            SFX2.IsChecked = true;
+            manager.Change(2);
+            manager.Play();
+        }
+        public void SoundThree(object sender, RoutedEventArgs e) 
+        {
+            SFX3.IsChecked = true;
+            manager.Change(3);
+            manager.Play();
         }
     }
 }

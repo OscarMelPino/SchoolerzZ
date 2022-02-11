@@ -184,3 +184,10 @@ C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchooler
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\brand.png
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\branded_logo.png
 C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\main_logo.png
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\MaxSound_icon.png
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\MuteSound_icon.png
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Sounds\OptionalClick1.wav
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Sounds\OptionalClick2.wav
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Sounds\StandardClick.wav
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\LoginSchoolerzZ.dll.config
+C:\Users\admin-dam2b\Desktop\SchoolerzZ\SchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\App.config

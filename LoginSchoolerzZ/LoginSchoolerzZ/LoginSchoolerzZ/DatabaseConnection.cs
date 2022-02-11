@@ -16,7 +16,7 @@ namespace LoginSchoolerzZ
         private MySqlConnection connection;
         private MySqlCommand command;
         DataSet resultados = new DataSet();
-        public DatabaseConnection() 
+        public DatabaseConnection()
         {
             host = "172.16.51.7";
             port = "3306";
@@ -53,20 +53,23 @@ namespace LoginSchoolerzZ
         {
             connection.Close();
         }
-        // TODO : ejecutar procedimiento en funcion del parmatro de entrada (1 > 4)
+        // TODO : ejecutar procedimiento en funcion del parametro de entrada (1 -> 4)
         public int TryLogin(string username, string password)
         {
             MakeConnection();
             string query = "LoginTeacherAO";
             command = new(query, connection);
             command.CommandType = CommandType.StoredProcedure;
+
             command.Parameters.AddWithValue("username", username);
             command.Parameters.AddWithValue("pwd", password);
 
             command.Parameters.Add(new MySqlParameter("@valid", MySqlDbType.Int32));
             command.Parameters["@valid"].Direction = ParameterDirection.Output;
+
             connection.Open();
             command.ExecuteNonQuery();
+            CloseConnection();
             return (int)command.Parameters["@valid"].Value;
         }
     }
