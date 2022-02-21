@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="App.config" />
+    <None Remove="Media\Images\brand.png" />
+    <None Remove="Media\Images\branded_logo.png" />
+    <None Remove="Media\Images\icono-opciones.png" />
+    <None Remove="Media\Images\icons8-facebook-240.png" />
+    <None Remove="Media\Images\icons8-instagram-240.png" />
+    <None Remove="Media\Images\icons8-twitter-240.png" />
+    <None Remove="Media\Images\main_logo.png" />
+    <None Remove="Media\Images\MaxSound_icon.png" />
+    <None Remove="Media\Images\MuteSound_icon.png" />
+    <None Remove="Media\Sounds\OptionalClick1.wav" />
+    <None Remove="Media\Sounds\OptionalClick2.wav" />
+    <None Remove="Media\Sounds\StandardClick.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Media\Images\brand.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\branded_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\icono-opciones.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\icons8-facebook-240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\icons8-instagram-240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\icons8-twitter-240.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\main_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\MaxSound_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\MuteSound_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Sounds\OptionalClick1.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Sounds\OptionalClick2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Sounds\StandardClick.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
