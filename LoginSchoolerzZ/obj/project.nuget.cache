@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3s7InUf8q2Tz302lKYc9cmGbZqr2TKJWRlzrVRxZjzwpu4Mef54rSSNwl8DACBVV8fyqyO58YAhAuDNUTBaI3Q==",
+  "dgSpecHash": "nKadw+9uUfezz4NqMPcV0ZT892A5NyDyCoB0J9NIT0+u9lFGN6aO88XRT9PYwxLrmUFFWgXWRY5aC8kzjSrd2A==",
   "success": true,
-  "projectFilePath": "C:\\WPF\\SchoolerzZ-wpf\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
+  "projectFilePath": "C:\\WPF\\LoginSchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\admin-dam2b\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

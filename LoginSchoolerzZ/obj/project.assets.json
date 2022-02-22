@@ -895,11 +895,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WPF\\SchoolerzZ-wpf\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
+      "projectUniqueName": "C:\\WPF\\LoginSchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
       "projectName": "LoginSchoolerzZ",
-      "projectPath": "C:\\WPF\\SchoolerzZ-wpf\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
+      "projectPath": "C:\\WPF\\LoginSchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ.csproj",
       "packagesPath": "C:\\Users\\admin-dam2b\\.nuget\\packages\\",
-      "outputPath": "C:\\WPF\\SchoolerzZ-wpf\\LoginSchoolerzZ\\LoginSchoolerzZ\\LoginSchoolerzZ\\obj\\",
+      "outputPath": "C:\\WPF\\LoginSchoolerzZ\\SchoolerzZ\\LoginSchoolerzZ\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin-dam2b\\AppData\\Roaming\\NuGet\\NuGet.Config",
