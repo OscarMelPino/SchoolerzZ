@@ -78,10 +78,12 @@ namespace LoginSchoolerzZ
             Track = option - 1;
             mpSFX.Open(new Uri(SFX[Track], UriKind.Relative));
         }
+
         public void OnPropertyChanged(string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
         public void UpdateConfig()
         {
             using FileStream fs = File.Create("../../../config.json");

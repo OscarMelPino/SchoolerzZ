@@ -35,7 +35,7 @@ namespace LoginSchoolerzZ
         private StackPanel last_tite_option_sp_used = null;
         private Char[] letterOption = { 'S', 'P', 'T', 'A' };
         private string path = "../../../data/user_data.json";
-        private string[] resolutions = { "600x400", "800x600", "1000x650", "1000x650", "1920x1080" };
+        private string[] resolutions = { "600x400", "800x600", "1000x650", "1600x1050", "1920x1080" };
         private ArrayList radioButtons = new();
         public MainWindow()
         {
@@ -60,8 +60,8 @@ namespace LoginSchoolerzZ
             r1000x650.IsChecked = true;
             last_options_sp_used = ResolutionsContainer;
             last_tite_option_sp_used = TitleResolution;
-            DataContext = manager;
             manager = new();
+            DataContext = manager;
             PutSelectedTrack();
             ReadConfig();
         }
@@ -236,6 +236,7 @@ namespace LoginSchoolerzZ
                 }
                 index++;
             }
+
             String ne = res.Substring(0, res.IndexOf('x'));
             String se = res.Substring(res.IndexOf('x') + 1, res.Length - ne.Length - 1);
             manager.Width = int.Parse(ne);

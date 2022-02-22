@@ -13,6 +13,5 @@ namespace LoginSchoolerzZ
         public int HeighResolution { get; set; }
         public int WidthResolution { get; set; }
         
-        public Config() { }
     }
 }

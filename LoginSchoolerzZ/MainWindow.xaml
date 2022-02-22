@@ -130,7 +130,8 @@
         <StackPanel x:Name="StartContainer"
                     Grid.Row="1" Grid.Column="1"
                     Grid.ColumnSpan="2" Grid.RowSpan="2"
-                    HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Visibility="Visible">
 
             <StackPanel x:Name="ButtonOpenContainer">
 
@@ -172,10 +173,12 @@
                     Style="{StaticResource MiBottonStandard}"
                     Content="SONIDO" Margin="30,0,0,0" Width="180" Height="40" Click="SoundOptionClick"/>
         </StackPanel>
+        
         <StackPanel x:Name="ResolutionsContainer" 
                     Grid.Row="1" Grid.Column="1"
                     VerticalAlignment="Center" HorizontalAlignment="Center"
                     Visibility="Collapsed">
+            
             <StackPanel Margin="0,0,0,30">
                 <RadioButton x:Name="r600x400" Content="600x400" 
                              Style="{StaticResource MiRadioButton}"/>
@@ -188,10 +191,11 @@
                 <RadioButton x:Name="r1920x1080" Content="1920x1080"
                              Style="{StaticResource MiRadioButton}"/>
             </StackPanel>
-            
+
             <Button Template="{StaticResource CTMiBottonAnimado}"
                     Style="{StaticResource MiBottonEspecial}"
-                    Content="Confirmar" Click="ConfirmResolutionButton"
+                    Content="Confirmar" 
+                    Click="ConfirmResolutionButton"
                     Margin="0,50,0,0" Height="50"/>
         </StackPanel>
 
