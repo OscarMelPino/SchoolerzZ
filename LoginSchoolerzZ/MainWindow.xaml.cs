@@ -19,9 +19,6 @@ using System.Text.Json;
 
 namespace LoginSchoolerzZ
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private LoginManager manager;
@@ -57,11 +54,12 @@ namespace LoginSchoolerzZ
             option_stackpanels.Add(OptionSoundContainer);
             title_option_stackpanels.Add(TitleResolution);
             title_option_stackpanels.Add(TitleSound);
-            r1000x650.IsChecked = true;
             last_options_sp_used = ResolutionsContainer;
             last_tite_option_sp_used = TitleResolution;
+
             manager = new();
             DataContext = manager;
+
             PutSelectedTrack();
             ReadConfig();
         }
@@ -95,10 +93,31 @@ namespace LoginSchoolerzZ
                 string json = r.ReadToEnd();
                 Config data_recovered = Newtonsoft.Json.JsonConvert.DeserializeObject<Config>(json);
                 manager.Volume = data_recovered.MasterVolume;    
-                manager.Track = data_recovered.LastTrack;    
-                manager.Height = data_recovered.HeighResolution;    
-                manager.Width = data_recovered.WidthResolution;    
+                manager.Track = data_recovered.LastTrack;
+                manager.Width = data_recovered.WidthResolution;
+                manager.Height = data_recovered.HeighResolution;     
                 r.Close();
+                switch (manager.Width)
+                {
+                    case 600:
+                        r600x400.IsChecked = true;
+                        break;
+                    case 800:
+                        r800x600.IsChecked = true;
+                        break;
+                    case 1000:
+                        r1000x650.IsChecked = true;
+                        break;
+                    case 1600:
+                        r1600x1050.IsChecked = true;
+                        break;
+                    case 1920:
+                        r1920x1080.IsChecked = true;
+                        break;
+                    default:
+                        r1000x650.IsChecked = true;
+                        break;
+                }
             }
         }
         public static string GetMD5(string str)
@@ -132,7 +151,11 @@ namespace LoginSchoolerzZ
             if (manager.Track == 1) SFX2.IsChecked = true;
             if (manager.Track == 2) SFX3.IsChecked = true;
         }
-        // BOTONES
+
+
+        // ------------------------------------------------------- BOTONES -----------------------------------------------------------------------------------
+
+
         public void UserTypeSet(object sender, RoutedEventArgs e)
         {
             if (ComboboxUserType.SelectedItem is null)
@@ -148,6 +171,7 @@ namespace LoginSchoolerzZ
             {
                 element.Visibility = Visibility.Collapsed;
             }
+            manager.Play();
         }
         public void MakeLogin(object sender, RoutedEventArgs e)
         {
@@ -165,6 +189,7 @@ namespace LoginSchoolerzZ
             manager = new(letterOption[ComboboxUserType.SelectedIndex], un, GetMD5(pwd), track);
             if (manager.Login() == 0) MessageBox.Show("Dentro.");
             if (manager.Login() < 0) MessageBox.Show("Datos de inicio de sesión incorrectos.", "Error al iniciar sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+            manager.Play();
         }
         public void Back(object sender, RoutedEventArgs e)
         {
@@ -176,6 +201,7 @@ namespace LoginSchoolerzZ
             {
                 element.Visibility = Visibility.Collapsed;
             }
+            manager.Play();
         }
 
         public void EnterLogin(object sender, RoutedEventArgs e)
@@ -186,10 +212,12 @@ namespace LoginSchoolerzZ
             }
 
             StartContainer.Visibility = Visibility.Collapsed;
+            manager.Play();
         }
 
         public void OpenOptionsButton(object sender, RoutedEventArgs e)
         {
+            manager.Play();
             foreach (StackPanel item in mid_stackpanels)
             {
                 if (item.Visibility is Visibility.Visible) last_mid_sp_used = item;
@@ -242,13 +270,15 @@ namespace LoginSchoolerzZ
             manager.Width = int.Parse(ne);
             manager.Height = int.Parse(se);
             manager.UpdateConfig();
+            manager.Play();
         }
         public void ConfirmSoundButton(object sender, RoutedEventArgs e)
         {
-            if (SFX1.IsChecked is true) manager.Change(1);
-            if (SFX2.IsChecked is true) manager.Change(2);
-            if (SFX3.IsChecked is true) manager.Change(3);
+            if (SFX1.IsChecked is true) manager.ChangeSFX(1);
+            if (SFX2.IsChecked is true) manager.ChangeSFX(2);
+            if (SFX3.IsChecked is true) manager.ChangeSFX(3);
             manager.UpdateConfig();
+            manager.Play();
         }
         public void SoundOptionClick(object sender, RoutedEventArgs e)
         {
@@ -256,6 +286,7 @@ namespace LoginSchoolerzZ
             TitleResolution.Visibility = Visibility.Collapsed;
             OptionSoundContainer.Visibility = Visibility.Visible;
             TitleSound.Visibility = Visibility.Visible;
+            manager.Play();
         }
         public void ImageOptionClick(object sender, RoutedEventArgs e)
         {
@@ -263,25 +294,26 @@ namespace LoginSchoolerzZ
             TitleSound.Visibility = Visibility.Collapsed;
             ResolutionsContainer.Visibility = Visibility.Visible;
             TitleResolution.Visibility = Visibility.Visible;
+            manager.Play();
         }
         public void MuteSound(object sender, RoutedEventArgs e) { manager.Volume = 0; }
         public void MaxSound(object sender, RoutedEventArgs e) { manager.Volume = 10; }
         public void SoundOne(object sender, RoutedEventArgs e) 
         {
             SFX1.IsChecked = true;
-            manager.Change(1);
+            manager.ChangeSFX(1);
             manager.Play();
         }
         public void SoundTwo(object sender, RoutedEventArgs e) 
         {
             SFX2.IsChecked = true;
-            manager.Change(2);
+            manager.ChangeSFX(2);
             manager.Play();
         }
         public void SoundThree(object sender, RoutedEventArgs e) 
         {
             SFX3.IsChecked = true;
-            manager.Change(3);
+            manager.ChangeSFX(3);
             manager.Play();
         }
     }
