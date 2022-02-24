@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:LoginSchoolerzZ"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="Dicc.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Dicc.xaml"/>
     </Application.Resources>
 </Application>

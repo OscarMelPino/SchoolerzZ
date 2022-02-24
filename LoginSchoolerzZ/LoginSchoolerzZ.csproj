@@ -15,6 +15,7 @@
     <None Remove="Media\Images\icons8-instagram-240.png" />
     <None Remove="Media\Images\icons8-twitter-240.png" />
     <None Remove="Media\Images\main_logo.png" />
+    <None Remove="Media\Images\main_logo_reversed.png" />
     <None Remove="Media\Images\MaxSound_icon.png" />
     <None Remove="Media\Images\MuteSound_icon.png" />
     <None Remove="Media\Sounds\OptionalClick1.wav" />
@@ -42,6 +43,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Images\main_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\main_logo_reversed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Images\MaxSound_icon.png">

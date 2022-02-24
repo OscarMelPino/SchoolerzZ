@@ -8,6 +8,27 @@
         <Setter Property="FontSize" Value="12"/>
     </Style>
 
+    <Style x:Key="MiTextBlockAnimado" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Bahnschrift"/>
+        <Setter Property="Foreground" Value="#FF3D5B67"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="TextBlock.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" 
+                                        From="#FF3D5B67" 
+                                        To="#FF619B79" 
+                                        Duration="0:0:1" 
+                                        AutoReverse="True" 
+                                        RepeatBehavior="Forever"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="MiTextBox" TargetType="TextBox">
         <Setter Property="FontFamily" Value="Bahnschrift"/>
         <Setter Property="Foreground" Value="#FF82643C"/>
@@ -69,6 +90,54 @@
         <Setter Property="Foreground" Value="#26000000"/>
         <Setter Property="Height" Value="75"/>
         <Setter Property="Width" Value="150"/>
+    </Style>
+
+    <Style x:Key="MiImageRotativa1" TargetType="Image">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:2">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <BitmapImage UriSource="/Media/Images/main_logo.png"/>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <BitmapImage UriSource="/Media/Images/main_logo_reversed.png"/>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MiImageRotativa2" TargetType="Image">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever">
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:2">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <BitmapImage UriSource="/Media/Images/main_logo_reversed.png"/>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                            <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <BitmapImage UriSource="/Media/Images/main_logo.png"/>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
 
     <ControlTemplate x:Key="CTMiBotton" TargetType="Button">

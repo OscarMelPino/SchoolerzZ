@@ -50,6 +50,7 @@ namespace LoginSchoolerzZ
             mid_stackpanels.Add(StartContainer);
             mid_stackpanels.Add(InputContainer);
             mid_stackpanels.Add(UserTypeContainer);
+            mid_stackpanels.Add(CreditosContainer);
             option_stackpanels.Add(ResolutionsContainer);
             option_stackpanels.Add(OptionSoundContainer);
             title_option_stackpanels.Add(TitleResolution);
@@ -169,7 +170,26 @@ namespace LoginSchoolerzZ
             if (manager.Track == 1) SFX2.IsChecked = true;
             if (manager.Track == 2) SFX3.IsChecked = true;
         }
-
+        public void MuteSound(object sender, RoutedEventArgs e) { manager.Volume = 0; }
+        public void MaxSound(object sender, RoutedEventArgs e) { manager.Volume = 10; }
+        public void SoundOne(object sender, RoutedEventArgs e)
+        {
+            SFX1.IsChecked = true;
+            manager.ChangeSFX(1);
+            manager.Play();
+        }
+        public void SoundTwo(object sender, RoutedEventArgs e)
+        {
+            SFX2.IsChecked = true;
+            manager.ChangeSFX(2);
+            manager.Play();
+        }
+        public void SoundThree(object sender, RoutedEventArgs e)
+        {
+            SFX3.IsChecked = true;
+            manager.ChangeSFX(3);
+            manager.Play();
+        }
 
         // ------------------------------------------------------- BOTONES -----------------------------------------------------------------------------------
 
@@ -314,24 +334,17 @@ namespace LoginSchoolerzZ
             TitleResolution.Visibility = Visibility.Visible;
             manager.Play();
         }
-        public void MuteSound(object sender, RoutedEventArgs e) { manager.Volume = 0; }
-        public void MaxSound(object sender, RoutedEventArgs e) { manager.Volume = 10; }
-        public void SoundOne(object sender, RoutedEventArgs e) 
+        private void ButtonVolverCreditos_Click(object sender, RoutedEventArgs e)
         {
-            SFX1.IsChecked = true;
-            manager.ChangeSFX(1);
+            CreditosContainer.Visibility = Visibility.Collapsed;
+            StartContainer.Visibility = Visibility.Visible;
             manager.Play();
         }
-        public void SoundTwo(object sender, RoutedEventArgs e) 
+
+        private void ButtonDesarrolladores_Click(object sender, RoutedEventArgs e)
         {
-            SFX2.IsChecked = true;
-            manager.ChangeSFX(2);
-            manager.Play();
-        }
-        public void SoundThree(object sender, RoutedEventArgs e) 
-        {
-            SFX3.IsChecked = true;
-            manager.ChangeSFX(3);
+            CreditosContainer.Visibility = Visibility.Visible;
+            StartContainer.Visibility = Visibility.Collapsed;
             manager.Play();
         }
     }

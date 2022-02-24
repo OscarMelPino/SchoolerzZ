@@ -387,3 +387,4 @@ C:\WPF\SchoolerzZ-wpf\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.d
 C:\WPF\SchoolerzZ-wpf\LoginSchoolerzZ\obj\Debug\net5.0-windows\ref\LoginSchoolerzZ.dll
 C:\WPF\SchoolerzZ-wpf\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.pdb
 C:\WPF\SchoolerzZ-wpf\LoginSchoolerzZ\obj\Debug\net5.0-windows\LoginSchoolerzZ.genruntimeconfig.cache
+C:\WPF\LoginSchoolerzZ\SchoolerzZ\LoginSchoolerzZ\bin\Debug\net5.0-windows\Media\Images\main_logo_reversed.png
