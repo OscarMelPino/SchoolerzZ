@@ -97,6 +97,7 @@ namespace LoginSchoolerzZ
                 manager.Width = data_recovered.WidthResolution;
                 manager.Height = data_recovered.HeighResolution;     
                 r.Close();
+
                 switch (manager.Width)
                 {
                     case 600:
@@ -116,6 +117,23 @@ namespace LoginSchoolerzZ
                         break;
                     default:
                         r1000x650.IsChecked = true;
+                        break;
+                }
+
+                manager.ChangeSFX(manager.Track + 1);
+                switch (manager.Track + 1)
+                {
+                    case 1:
+                        SFX1.IsChecked = true;
+                        break;
+                    case 2:
+                        SFX2.IsChecked = true;
+                        break;
+                    case 3:
+                        SFX3.IsChecked = true;
+                        break;
+                    default:
+                        SFX1.IsChecked = true;
                         break;
                 }
             }

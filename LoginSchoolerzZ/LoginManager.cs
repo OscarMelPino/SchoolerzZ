@@ -28,7 +28,7 @@ namespace LoginSchoolerzZ
         private int volumen;
         private int track;
         public int Volume { get => volumen; set { volumen = value; OnPropertyChanged("Volume");}}
-        public int Track { get => track; set { track = value; OnPropertyChanged("Track");}}
+        public int Track { get => track; set { track = value; OnPropertyChanged("Track"); } }
         private String Username { get ; set; } 
         private String Password { get; set; }
         public int Width { get => ancho; set { ancho = value; OnPropertyChanged("Width");}}
@@ -36,9 +36,6 @@ namespace LoginSchoolerzZ
         public LoginManager()
         { 
             schoolerz = new();
-            Track = int.Parse(ConfigurationManager.AppSettings["track"]) - 1;
-            Volume = int.Parse(ConfigurationManager.AppSettings["master_volume"]);
-            mpSFX.Open(new Uri(SFX[Track], UriKind.Relative));
             ChangeVolume();
         }
         public LoginManager(char userType, String username, String pwd, int track )
@@ -46,12 +43,7 @@ namespace LoginSchoolerzZ
             Username = userType + username;
             Password = pwd;
             schoolerz = new();
-            Track = track;
-            Track = int.Parse(ConfigurationManager.AppSettings["track"]) - 1 ;
-            Volume = int.Parse(ConfigurationManager.AppSettings["master_volume"]);
-            mpSFX.Open(new Uri(SFX[Track], UriKind.Relative));
             ChangeVolume();
-            ConfigurationManager.AppSettings["track"] = "1";
         }
         public int Login()
         {
@@ -68,7 +60,7 @@ namespace LoginSchoolerzZ
             if (option > 3 || option < 0) return;
             if (option == 1)
             {
-                Track = option - 1 ;
+                Track = option - 1;
                 mpSFX.Open(new Uri(SFX[Track], UriKind.Relative));
                 return;
             }

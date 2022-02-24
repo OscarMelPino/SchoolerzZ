@@ -179,7 +179,7 @@
                         Content="Login"
                         Click="EnterLogin"
                         Width="300" Height="80" 
-                        FontSize="40" Background="#FF82AA96" Foreground="#FF3D5B67"/>
+                        FontSize="40"/>
 
                 <StackPanel x:Name="BottonOpenInfoContainer"
                                 HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -192,7 +192,7 @@
                                 FontSize="13"
                                 Content="Desarrolladores"
                                 Margin="0,0,15,0"
-                                Width="125" Height="30" Background="#FFDCAA5A" Foreground="#FF7D4628"/>
+                                Width="125" Height="30"/>
 
                     <Button x:Name="ButtonSobreNosotros"
                                 Template="{StaticResource CTMiBottonAnimado}"
@@ -270,7 +270,8 @@
                     VerticalAlignment="Center" Margin="0,0,0,100"
                     Visibility="Collapsed">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                <Button Template="{StaticResource CTMiBotton}" 
+                <Button Template="{StaticResource CTMiBotton}"
+                        Style="{StaticResource MiBottonImagen}"
                         Width="40" Height="40" 
                         VerticalAlignment="Bottom" 
                         Name="MuteSoundButton" 
@@ -286,7 +287,8 @@
                         Width="450" 
                         Margin="20,10,20,0" TickFrequency="0.1" />
                 
-                <Button Template="{StaticResource CTMiBotton}" 
+                <Button Template="{StaticResource CTMiBotton}"
+                        Style="{StaticResource MiBottonImagen}"
                         Width="40" Height="40" 
                         VerticalAlignment="Bottom" 
                         Name="MaxSoundButton" 
@@ -323,7 +325,7 @@
                 <StackPanel x:Name="SoundsContainer" Orientation="Horizontal" HorizontalAlignment="Center" Width="480">
                     <RadioButton x:Name="SFX1" Tag="1" HorizontalAlignment="Center" Margin="60,0,0,0"/>
                     <RadioButton x:Name="SFX2" Tag="2" HorizontalAlignment="Center" Margin="160,0,0,0"/>
-                    <RadioButton x:Name="SFX3" Tag="3"  HorizontalAlignment="Center" Margin="150,0,0,0"/>
+                    <RadioButton x:Name="SFX3" Tag="3" HorizontalAlignment="Center" Margin="150,0,0,0"/>
                 </StackPanel>
                 
             </StackPanel>
@@ -350,10 +352,10 @@
         
         <Button x:Name="ButtonPantallaOpciones"
                 Template="{StaticResource CTMiBotton}"
-                Style="{StaticResource MiBottonStandard}"
+                Style="{StaticResource MiBottonImagen}"
                 Grid.Row="2" Grid.Column="1"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
-                Margin="0,0,10,11"
+                Margin="0,0,10,10"
                 Width="50" Height="50"
                 Click="OpenOptionsButton">
             <Button.Background>

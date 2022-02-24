@@ -3,7 +3,7 @@
 
     <Style x:Key="MiTextBlock" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Bahnschrift"/>
-        <Setter Property="Foreground" Value="#FF264653"/>
+        <Setter Property="Foreground" Value="#FF3D5B67"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
@@ -24,7 +24,7 @@
 
     <Style x:Key="MiCheckBox" TargetType="CheckBox">
         <Setter Property="FontFamily" Value="Bahnschrift"/>
-        <Setter Property="Foreground" Value="#FF264653"/>
+        <Setter Property="Foreground" Value="#FF3D5B67"/>
         <Setter Property="FontSize" Value="20"/>
     </Style>
 
@@ -33,14 +33,14 @@
     </Style>
 
     <Style x:Key="MiRadioButton" TargetType="RadioButton">
-        <Setter Property="Foreground" Value="#FF264653"/>
+        <Setter Property="Foreground" Value="#FF3D5B67"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontFamily" Value="Bahnschrift"/>
     </Style>
 
     <Style x:Key="MiComboBox" TargetType="ComboBox">
         <Setter Property="FontFamily" Value="Bahnschrift"/>
-        <Setter Property="Foreground" Value="#FF264653"/>
+        <Setter Property="Foreground" Value="#FF3D5B67"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="Width" Value="200"/>
@@ -48,8 +48,8 @@
 
     <Style x:Key="MiBottonStandard" TargetType="Button">
         <Setter Property="FontFamily" Value="Bahnschrift"/>
-        <Setter Property="Foreground" Value="#FF264653"/>
-        <Setter Property="Background" Value="#FFBFBA80"/>
+        <Setter Property="Foreground" Value="#FF7D4628"/>
+        <Setter Property="Background" Value="#FFDCAA5A"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="Height" Value="75"/>
         <Setter Property="Width" Value="150"/>
@@ -57,24 +57,28 @@
 
     <Style x:Key="MiBottonEspecial" TargetType="Button">
         <Setter Property="FontFamily" Value="Bahnschrift"/>
-        <Setter Property="Foreground" Value="#FFB40F46"/>
-        <Setter Property="Background" Value="#FFD59966"/>
+        <Setter Property="Foreground" Value="#FF3D5B67"/>
+        <Setter Property="Background" Value="#FF82AA96"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Height" Value="75"/>
         <Setter Property="Width" Value="150"/>
     </Style>
 
+    <Style x:Key="MiBottonImagen" TargetType="Button">
+        <Setter Property="Foreground" Value="#26000000"/>
+        <Setter Property="Height" Value="75"/>
+        <Setter Property="Width" Value="150"/>
+    </Style>
+
     <ControlTemplate x:Key="CTMiBotton" TargetType="Button">
         <Grid>
-            <!--Rectangle (o Ellipse, Line, Path, Polygon, Polyline, Shape) para la forma del coso-->
             <Rectangle x:Name="Fondo"
                        Fill="{TemplateBinding Background}"
                        Stroke="{TemplateBinding Foreground}"
                        Width="{TemplateBinding Width}" 
                        Height="{TemplateBinding Height}"/>
 
-            <!--ContentPresenter para el aligment-->
             <ContentPresenter HorizontalAlignment="Center" 
                               VerticalAlignment="Center"/>
         </Grid>
