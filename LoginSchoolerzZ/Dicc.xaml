@@ -92,6 +92,16 @@
         <Setter Property="Width" Value="150"/>
     </Style>
 
+    <Style x:Key="MiBottonCerrar" TargetType="Button">
+        <Setter Property="Foreground" Value="#FFAA4141"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="FontFamily" Value="Bahnschrift"/>
+        <Setter Property="Content" Value="X"/>
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+    </Style>
+
     <Style x:Key="MiImageRotativa1" TargetType="Image">
         <Style.Triggers>
             <EventTrigger RoutedEvent="Loaded">

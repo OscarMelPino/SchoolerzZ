@@ -11,6 +11,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/brand.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/branded_logo.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/icono-opciones.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/icono-work.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/icons8-facebook-240.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/icons8-instagram-240.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("media/images/icons8-twitter-240.png")]

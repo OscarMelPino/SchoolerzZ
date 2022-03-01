@@ -30,7 +30,7 @@ namespace LoginSchoolerzZ
         private StackPanel last_mid_sp_used = null;
         private StackPanel last_options_sp_used = null;
         private StackPanel last_tite_option_sp_used = null;
-        private Char[] letterOption = { 'S', 'P', 'T', 'A' };
+        private Char[] letterOption = { 'S', 'P', 'T', 'M' };
         private string path = "../../../data/user_data.json";
         private string[] resolutions = { "600x400", "800x600", "1000x650", "1600x1050", "1920x1080" };
         private ArrayList radioButtons = new();
@@ -51,6 +51,8 @@ namespace LoginSchoolerzZ
             mid_stackpanels.Add(InputContainer);
             mid_stackpanels.Add(UserTypeContainer);
             mid_stackpanels.Add(CreditosContainer);
+            mid_stackpanels.Add(SobreNosotrosContainer);
+            mid_stackpanels.Add(MainPageContainer);
             option_stackpanels.Add(ResolutionsContainer);
             option_stackpanels.Add(OptionSoundContainer);
             title_option_stackpanels.Add(TitleResolution);
@@ -225,8 +227,14 @@ namespace LoginSchoolerzZ
             track = (bool)SFX2.IsChecked ? 1 : track;
             track = (bool)SFX3.IsChecked ? 2 : track;
             manager = new(letterOption[ComboboxUserType.SelectedIndex], un, GetMD5(pwd), track);
-            if (manager.Login() == 0) MessageBox.Show("Dentro.");
             if (manager.Login() < 0) MessageBox.Show("Datos de inicio de sesión incorrectos.", "Error al iniciar sesión", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (manager.Login() == 0)
+            {
+                MainPageContainer.Visibility = Visibility.Visible;
+                TitleContainer.Visibility = Visibility.Collapsed;
+                InputContainer.Visibility = Visibility.Collapsed;
+                ButtonLoginBackContainer.Visibility = Visibility.Collapsed;
+            }
             manager.Play();
         }
         public void Back(object sender, RoutedEventArgs e)
@@ -288,6 +296,7 @@ namespace LoginSchoolerzZ
             BrandLogoContainer.Visibility = Visibility.Visible;
             TitleContainer.Visibility = Visibility.Visible;
             last_tite_option_sp_used.Visibility = Visibility.Collapsed;
+            if (last_mid_sp_used == MainPageContainer) TitleContainer.Visibility = Visibility.Collapsed;
         }
         public void ConfirmResolutionButton(object sender, RoutedEventArgs e)
         {
@@ -345,6 +354,18 @@ namespace LoginSchoolerzZ
         {
             CreditosContainer.Visibility = Visibility.Visible;
             StartContainer.Visibility = Visibility.Collapsed;
+            manager.Play();
+        }
+
+        private void ButtonSobreNosotros_Click(object sender, RoutedEventArgs e)
+        {
+            SobreNosotrosContainer.Visibility = Visibility.Visible;
+            manager.Play();
+        }
+
+        private void ButtonSobreNosotrosCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            SobreNosotrosContainer.Visibility = Visibility.Collapsed;
             manager.Play();
         }
     }

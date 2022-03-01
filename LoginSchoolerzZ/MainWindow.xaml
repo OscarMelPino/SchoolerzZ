@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Width="{Binding Width, Mode=TwoWay}" Height="{Binding Height, Mode=TwoWay}">
     <Grid>
+        <!--Los grids-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="3.5*"/>
@@ -17,6 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
+        <!--Background-->
         <StackPanel x:Name="Fondo" Grid.RowSpan="3" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
@@ -26,14 +28,20 @@
             </StackPanel.Background>
             <Image Height="100" Stretch="Fill" Source="/main_logo.jpg" Width="564"/>
         </StackPanel>
+        
+        <!--Nombre empresa-->
         <StackPanel x:Name="BrandNameContainer"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="/Media/Images/brand.png"/>
         </StackPanel>
+        
+        <!--Logotipo empresa-->
         <StackPanel x:Name="BrandLogoContainer" Grid.Row="1"
                     HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="/Media/Images/main_logo.png" />
         </StackPanel>
+        
+        <!--Redes sociales-->
         <StackPanel x:Name="BrandSocialMediaContainer" Grid.Row="2"
                     HorizontalAlignment="Center" 
                         VerticalAlignment="Center">
@@ -73,9 +81,12 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
+
+        <!--TitleContainer-->
         <StackPanel x:Name="TitleContainer" Grid.Column="1"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Margin="0,30,0,0">
+                    Margin="0,30,0,0"
+                    Visibility="Collapsed">
             <TextBlock x:Name="tb_title_current_view1"
                        Text="Bienvenido a "
                        FontSize="30" 
@@ -87,84 +98,8 @@
                        Style="{StaticResource MiTextBlock}"
                        TextWrapping="NoWrap"/>
         </StackPanel>
-        
-        <StackPanel x:Name="InputContainer" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Usuario"
-                       Style="{StaticResource MiTextBlock}"
-                       Width="200" Height="30" 
-                       FontSize="25" 
-                       TextAlignment="Center" 
-                       FontWeight="DemiBold"/>
-            <TextBox x:Name="UserInput"
-                     Style="{StaticResource MiTextBox}"
-                     Width="250" Height="30"
-                     TextWrapping="NoWrap"/>
-            <TextBlock Text="Contraseña"
-                       Style="{StaticResource MiTextBlock}"
-                       Width="250" Height="30"
-                       FontSize="25" TextAlignment="Center" 
-                       FontWeight="DemiBold" 
-                       Margin="0,10,0,0"/>
-            <PasswordBox x:Name="PasswordInput"
-                         Style="{StaticResource MiPasswordBox}"
-                         Width="250" Height="30"/>
 
-            <CheckBox x:Name="RemembermeCheckbox"
-                      Style="{StaticResource MiCheckBox}"
-                      HorizontalAlignment="Center" VerticalAlignment="Center"
-                      Content="Recuérdame" 
-                      Margin="0,10,0,0"/>
-        </StackPanel>
-        
-        <StackPanel x:Name="UserTypeContainer" Grid.Column="1" Grid.Row="1"
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-            <TextBlock  Text="Elige tu tipo de usuario"
-                        Style="{StaticResource MiTextBlock}"
-                        FontSize="25" FontWeight="DemiBold"
-                        TextWrapping="NoWrap" Margin="0,0,0,20"/>
-            <ComboBox Name="ComboboxUserType"
-                      Style="{StaticResource MiComboBox}"
-                      VerticalAlignment="Center">
-                <ComboBoxItem Content="Alumno" x:Name="ComboItemUserTypeStudent" FontSize="20"/>
-                <ComboBoxItem Content="Padre" x:Name="ComboItemUserTypeParent" FontSize="20"/>
-                <ComboBoxItem Content="Profesor" x:Name="ComboItemUserTypeTeacher" FontSize="20"/>
-                <ComboBoxItem Content="Administrador" x:Name="ComboItemUserTypeSchoolManager" FontSize="20"/>
-            </ComboBox>
-
-        </StackPanel>
-        <StackPanel x:Name="ButtonNextContainer" Grid.Row="2" Grid.Column="1" Orientation="Horizontal"
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
-            <Button x:Name="ButtonUserTypeSet"
-                    Template="{StaticResource CTMiBottonAnimado}"
-                    Style="{StaticResource MiBottonStandard}"
-                    FontSize="20" 
-                    Content="Siguiente" 
-                    Click="UserTypeSet" 
-                    VerticalAlignment="Center"
-                    Width="175" Height="50"/>
-
-        </StackPanel>
-        <StackPanel x:Name="ButtonLoginBackContainer" 
-                    Grid.Row="2" Grid.Column="1" 
-                    Orientation="Horizontal" 
-                    HorizontalAlignment="Center"
-                    Visibility="Collapsed">
-            <Button Template="{StaticResource CTMiBottonAnimado}"
-                    Style="{StaticResource MiBottonStandard}"
-                    FontSize="20"
-                    Content="Atrás" 
-                    Click="Back" 
-                    Width="175" Height="50"/>
-            
-            <Button Template="{StaticResource CTMiBottonAnimado}"
-                    Style="{StaticResource MiBottonStandard}"
-                    FontSize="20"
-                    Content="Entrar" 
-                    Click="MakeLogin" 
-                    Width="175" Height="50"
-                    Margin="50,0,0,0"/>
-        </StackPanel>
+        <!--StartContainer-->
         <StackPanel x:Name="StartContainer"
                     Grid.Row="1" Grid.Column="1"
                     Grid.ColumnSpan="2" Grid.RowSpan="2"
@@ -200,12 +135,99 @@
                                 FontSize="13"
                                 Content="Sobre nosotros..."
                                 Margin="15,0,0,0"
-                                Width="125" Height="30"/>
+                                Width="125" Height="30" 
+                                Click="ButtonSobreNosotros_Click"/>
                 </StackPanel>
 
             </StackPanel>
 
         </StackPanel>
+
+        <!--InputContainer-->
+        <StackPanel x:Name="InputContainer" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Usuario"
+                       Style="{StaticResource MiTextBlock}"
+                       Width="200" Height="30" 
+                       FontSize="25" 
+                       TextAlignment="Center" 
+                       FontWeight="DemiBold"/>
+            <TextBox x:Name="UserInput"
+                     Style="{StaticResource MiTextBox}"
+                     Width="250" Height="30"
+                     TextWrapping="NoWrap"/>
+            <TextBlock Text="Contraseña"
+                       Style="{StaticResource MiTextBlock}"
+                       Width="250" Height="30"
+                       FontSize="25" TextAlignment="Center" 
+                       FontWeight="DemiBold" 
+                       Margin="0,10,0,0"/>
+            <PasswordBox x:Name="PasswordInput"
+                         Style="{StaticResource MiPasswordBox}"
+                         Width="250" Height="30"/>
+
+            <CheckBox x:Name="RemembermeCheckbox"
+                      Style="{StaticResource MiCheckBox}"
+                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                      Content="Recuérdame" 
+                      Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!--UserTypeContainer-->
+        <StackPanel x:Name="UserTypeContainer" Grid.Column="1" Grid.Row="1"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <TextBlock  Text="Elige tu tipo de usuario"
+                        Style="{StaticResource MiTextBlock}"
+                        FontSize="25" FontWeight="DemiBold"
+                        TextWrapping="NoWrap" Margin="0,0,0,20"/>
+            <ComboBox Name="ComboboxUserType"
+                      Style="{StaticResource MiComboBox}"
+                      VerticalAlignment="Center">
+                <ComboBoxItem Content="Alumno" x:Name="ComboItemUserTypeStudent" FontSize="20"/>
+                <ComboBoxItem Content="Padre" x:Name="ComboItemUserTypeParent" FontSize="20"/>
+                <ComboBoxItem Content="Profesor" x:Name="ComboItemUserTypeTeacher" FontSize="20"/>
+                <ComboBoxItem Content="Administrador" x:Name="ComboItemUserTypeSchoolManager" FontSize="20"/>
+            </ComboBox>
+
+        </StackPanel>
+
+        <!--ButtonNextContainer-->
+        <StackPanel x:Name="ButtonNextContainer" Grid.Row="2" Grid.Column="1" Orientation="Horizontal"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+            <Button x:Name="ButtonUserTypeSet"
+                    Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonStandard}"
+                    FontSize="20" 
+                    Content="Siguiente" 
+                    Click="UserTypeSet" 
+                    VerticalAlignment="Center"
+                    Width="175" Height="50"/>
+
+        </StackPanel>
+
+        <!--ButtonLoginBackContainer-->
+        <StackPanel x:Name="ButtonLoginBackContainer" 
+                    Grid.Row="2" Grid.Column="1" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Center"
+                    Visibility="Collapsed">
+            <Button Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonStandard}"
+                    FontSize="20"
+                    Content="Atrás" 
+                    Click="Back" 
+                    Width="175" Height="50"/>
+
+            <Button Template="{StaticResource CTMiBottonAnimado}"
+                    Style="{StaticResource MiBottonStandard}"
+                    FontSize="20"
+                    Content="Entrar" 
+                    Click="MakeLogin" 
+                    Width="175" Height="50"
+                    Margin="50,0,0,0"/>
+        </StackPanel>
+
+        <!--OptionsContainer-->
         <StackPanel x:Name="OptionsContainer" Grid.Row="1" 
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Visibility="Collapsed">
@@ -220,7 +242,8 @@
                     Width="180" Height="40" 
                     Click="SoundOptionClick"/>
         </StackPanel>
-        
+
+        <!--ResolutionsContainer-->
         <StackPanel x:Name="ResolutionsContainer" 
                     Grid.Row="1" Grid.Column="1"
                     VerticalAlignment="Center" HorizontalAlignment="Center"
@@ -246,6 +269,7 @@
                     Margin="0,50,0,0" Height="50"/>
         </StackPanel>
 
+        <!--TitleResolution-->
         <StackPanel x:Name="TitleResolution"
                     Grid.Column="1" 
                     HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -256,6 +280,7 @@
                        Style="{StaticResource MiTextBlock}"/>
         </StackPanel>
 
+        <!--TitleSound-->
         <StackPanel x:Name="TitleSound"
                     Grid.Column="1" 
                     HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -266,6 +291,7 @@
                        Style="{StaticResource MiTextBlock}"/>
         </StackPanel>
 
+        <!--OptionSoundContainer-->
         <StackPanel x:Name="OptionSoundContainer" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
                     VerticalAlignment="Center" Margin="0,0,0,100"
                     Visibility="Collapsed">
@@ -339,6 +365,7 @@
             </StackPanel>
         </StackPanel>
 
+        <!--CreditosContainer-->
         <StackPanel x:Name="CreditosContainer"
                     Grid.Row="1" Grid.Column="1"
                     Grid.ColumnSpan="2" Grid.RowSpan="2"
@@ -389,13 +416,72 @@
                     Width="130" Height="30" 
                     Margin="0,50,0,0" 
                     Click="ButtonVolverCreditos_Click"/>
-            
+
         </StackPanel>
-        
-        <StackPanel x:Name="MainPageContainer">
-            
+
+        <!--SobreNosotrosContainer-->
+        <StackPanel x:Name="SobreNosotrosContainer"
+                    Grid.Row="0" Grid.Column="1"
+                    Grid.RowSpan="3"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Width="350" Height="450" 
+                        Background="#FFF0F0C8">
+
+                <Button x:Name="ButtonSobreNosotrosCerrar"
+                        Template="{StaticResource CTMiBotton}"
+                        Style="{StaticResource MiBottonCerrar}"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        Width="30" Height="30" 
+                        Margin="0,2,2,0" 
+                        Click="ButtonSobreNosotrosCerrar_Click"/>
+                
+                <StackPanel Width="250">
+                    <Image Source="/Media/Images/brand.png"/>
+                </StackPanel>
+                
+                <StackPanel Width="300" Height="200" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            >
+                    <TextBlock Text="ScoolerzZ es una empresa dedicada al desarrollo 
+                               software educativo, comprometida con una enseñanza 
+                               adecuada para las nuevas generaciones y apuntando hacia 
+                               un futuro que evolucione la docencia en algo 
+                               completamente distinto"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               TextWrapping="Wrap" 
+                               FontFamily="Global Serif" 
+                               FontSize="20" />
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-        
+
+        <!--MainPageContainer-->
+        <StackPanel x:Name="MainPageContainer"
+                    Grid.Row="0" Grid.Column="1"
+                    Grid.RowSpan="3"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="Collapsed">
+            <StackPanel Width="550" Height="450" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock
+                       Text="WORK IN"
+                       FontSize="50" 
+                       Style="{StaticResource MiTextBlock}"
+                       TextAlignment="Center"/>
+                <TextBlock
+                       Text="PROGRESS"
+                       FontSize="70" 
+                       Style="{StaticResource MiTextBlock}"
+                       TextAlignment="Center"/>
+                <StackPanel  Width="250" Margin="0,30,0,0">
+                    <Image Source="/Media/Images/icono-work.png"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <!--ButtonPantallaOpciones-->
         <Button x:Name="ButtonPantallaOpciones"
                 Template="{StaticResource CTMiBotton}"
                 Style="{StaticResource MiBottonImagen}"

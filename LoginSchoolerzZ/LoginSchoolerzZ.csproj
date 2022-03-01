@@ -11,6 +11,7 @@
     <None Remove="Media\Images\brand.png" />
     <None Remove="Media\Images\branded_logo.png" />
     <None Remove="Media\Images\icono-opciones.png" />
+    <None Remove="Media\Images\icono-work.png" />
     <None Remove="Media\Images\icons8-facebook-240.png" />
     <None Remove="Media\Images\icons8-instagram-240.png" />
     <None Remove="Media\Images\icons8-twitter-240.png" />
@@ -31,6 +32,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Images\icono-opciones.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Media\Images\icono-work.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Media\Images\icons8-facebook-240.png">

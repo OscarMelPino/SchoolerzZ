@@ -57,7 +57,7 @@ namespace LoginSchoolerzZ
         public int TryLogin(string username, string password)
         {
             MakeConnection();
-            string query = "LoginTeacherAO";
+            string query = "pa_Login_AO";
             command = new(query, connection);
             command.CommandType = CommandType.StoredProcedure;
 
